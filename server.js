@@ -106,3 +106,9 @@ app.get("/dashboard", (req, res) => {
         });
 });
 
+//Start Secure HTTPS Server
+
+https.createServer(sslOptions, app).listen(3000, () => {
+    console.log("Secure server running at:");
+    console.log("https://localhost:3000");
+});
