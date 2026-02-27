@@ -13,3 +13,18 @@ const sslOptions = {
     cert: fs.readFileSync(path.join(__dirname, "cert/server.cert"))
 };
 
+//Security 
+
+app.use(helmet());
+
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            scriptSrc: ["'self'"], 
+            imgSrc: ["'self'", "data:"]
+        }
+    })
+); 
+
