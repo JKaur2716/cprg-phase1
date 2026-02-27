@@ -71,3 +71,18 @@ app.get("/feedback/:id" , (req, res) => {
     res.set("Cache-Control", "public, max-age=300");
     res.json(item);
 })
+
+// Create Feedback (No Caching Sensitive)
+
+app.post("/feedback", (req, res) => {
+    const newFeedback = {
+        id: feedback.length + 1, 
+        ...req.body
+    };
+
+    feedback.push(newFeedback);
+
+    res.set("cache-control", "no-store");
+    res.status(201).json(newFeedback);
+});
+
