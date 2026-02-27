@@ -28,3 +28,8 @@ app.use(
     })
 ); 
 
+//Core Middleware Setup
+
+app.use(express.json());
+app.use(express.static("public"));
+
