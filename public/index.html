@@ -3,75 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capstone Project</title>
+    <title> Refinite </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Capstone Project</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
+<header>
+    <h1>Refinite</h1>
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#submit">Submit Feedback</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <h2>Welcome to Our Capstone Website</h2>
-            <p>Discover our projects and creative work!</p>
-            <a href="#projects" class="btn">See Projects</a>
-        </div>
+        <h2>Centralized Feedback for Freelancers and Clients</h2>
+        <p>
+            A secure platform that keeps project feedback organized, clear,
+            and easy to act on throughout the project lifecycle.
+        </p>
+        <button>View Dashboard</button>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We are a group of students working on innovative solutions for our capstone project. Here you can see what we've been creating this semester!</p>
-        </div>
-    </section>
+    <!-- Dashboard -->
+    <section id="dashboard" class="card">
+        <h3>Your Dashboard</h3>
+        <div class="stats">
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Our Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Brief description of Project 1.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Brief description of Project 2.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Brief description of Project 3.</p>
-                </div>
+            <div class="stat-box">
+                <h4>Active Projects</h4>
+                <p>3</p>
             </div>
+
+            <div class="stat-box">
+                <h4>Unread Feedback</h4>
+                <p>5</p>
+            </div>
+
+            <div class="stat-box">
+                <h4>Resolved Items</h4>
+                <p>12</p>
+            </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Email: team@example.com</p>
+    <!-- Feedback list -->
+    <section id="feedback" class="card">
+
+        <h3>Recent Feedback</h3>
+
+        <div class="feedback-item">
+            <h4>Website Redesign</h4>
+            <p>Please adjust spacing on homepage sections.</p>
+            <span class="status open">Open</span>
         </div>
+
+        <div class="feedback-item">
+            <h4>Mobile App UI</h4>
+            <p>The navigation improvements look great.</p>
+            <span class="status resolved">Resolved</span>
+        </div>
+
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Capstone Project Team. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Submit form -->
+    <section id="submit" class="card">
+
+        <h3>Submit Feedback</h3>
+
+        <form>
+
+            <label>Project Name</label>
+            <input type="text" placeholder="Enter project name">
+
+            <label>Feedback</label>
+            <textarea placeholder="Enter feedback"></textarea>
+
+            <button type="submit">Submit Feedback</button>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Capstone Project — Secure Feedback Platform Prototype</p>
+</footer>
+
 </body>
 </html>
