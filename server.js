@@ -33,3 +33,23 @@ app.use(
 app.use(express.json());
 app.use(express.static("public"));
 
+//Filler(mock) Data
+
+const feedback = [
+{
+    id:1,
+    project: "Website redesign",
+    client: "Client A", 
+    freelancer: "Designer B", 
+    comment: "Please improve spacing on Homepage", 
+    status: "open"
+}, 
+{
+    id: 2, 
+    project: "Mobile app UI", 
+    client: "Client K", 
+    freelancer: "Designer J", 
+    comment: "Those colors look great now", 
+    status: "resolved"
+}]; 
+
