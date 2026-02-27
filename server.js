@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); 
 const https = require("https");
 const fs = require("fs");
 const helmet = require("helmet");
@@ -8,14 +8,14 @@ const app = express();
 
 // SSL Configuration
 
-const sslOptions = {
-    key: fs.readFileSync(path.join(__dirname, "cert/server.key")),
-    cert: fs.readFileSync(path.join(__dirname, "cert/server.cert"))
+const sslOptions = { //this will hold the certificate settings 
+    key: fs.readFileSync(path.join(__dirname, "cert/server.key")), //This will read the private key from the cert folder its like secret password.
+    cert: fs.readFileSync(path.join(__dirname, "cert/server.cert")) //This will read hte SSL Certificate file. 
 };
 
 //Security 
 
-app.use(helmet());
+app.use(helmet()); //This tells to use Helmet's default security protections on every request not just one.
 
 app.use(
     helmet.contentSecurityPolicy({
@@ -53,3 +53,21 @@ const feedback = [
     status: "resolved"
 }]; 
 
+
+//cache enabling for public feedbacks
+
+app.get("/feedback", (req, res) => {
+    res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
+    res.json(feedback);
+})
+
+app.get("/feedback/:id" , (req, res) => {
+    const item = feedback.find(f => f.id == req.params.id);
+
+    if (!item) {
+        return res.status(404).json({ error: "Feedback not found" });
+    }
+
+    res.set("Cache-Control", "public, max-age=300");
+    res.json(item);
+})
