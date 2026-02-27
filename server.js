@@ -86,3 +86,23 @@ app.post("/feedback", (req, res) => {
     res.status(201).json(newFeedback);
 });
 
+//Private Routes (Not for Cache)
+
+app.get("/profile", (req, res) => {
+    res.set("cache-control", "no-store");
+
+    res.json({
+        user: "Freelancer A",
+        role: "freelancer"
+    });
+});
+
+app.get("/dashboard", (req, res) => {
+    res.set("Cache-Control", "private, no-store");
+
+        res.json({
+            activeProjects: 3,
+            unreadFeedback: 5
+        });
+});
+
